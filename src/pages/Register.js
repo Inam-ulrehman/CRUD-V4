@@ -59,8 +59,7 @@ const Register = () => {
       }, 3000)
       return () => clearTimeout(timeOut)
     }
-    // eslint-disable-next-line
-  }, [user])
+  })
   return (
     <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
