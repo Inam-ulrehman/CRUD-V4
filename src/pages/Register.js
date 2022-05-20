@@ -54,12 +54,11 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
-      const timeOut = setTimeout(() => {
+      setTimeout(() => {
         navigate('/')
-      }, 3000)
-      return () => clearTimeout(timeOut)
+      }, 2000)
     }
-  })
+  }, [user])
   return (
     <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
