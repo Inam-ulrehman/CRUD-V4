@@ -1,10 +1,9 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState } from 'react'
 import styled from 'styled-components'
 import FormRow from '../components/FormRow'
 import { toast } from 'react-toastify'
 import { useDispatch, useSelector } from 'react-redux'
 import { getLoginUser, getRegisterUser } from '../features/user/userSlice'
-import { useNavigate } from 'react-router-dom'
 
 const initialState = {
   name: '',
@@ -16,9 +15,8 @@ const initialState = {
 const Register = () => {
   const [values, setValues] = useState(initialState)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
 
-  const { user, isLoading } = useSelector((state) => state.user)
+  const { isLoading } = useSelector((state) => state.user)
 
   // Handle onSubmit
 
@@ -52,13 +50,6 @@ const Register = () => {
 
   // useEffect
 
-  useEffect(() => {
-    if (user) {
-      setTimeout(() => {
-        navigate('/')
-      }, 2000)
-    }
-  }, [user])
   return (
     <Wrapper>
       <form onSubmit={handleSubmit} className='form'>
