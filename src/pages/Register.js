@@ -54,10 +54,12 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
-      setTimeout(() => {
+      const timeOut = setTimeout(() => {
         navigate('/')
       }, 3000)
+      return () => clearTimeout(timeOut)
     }
+    // eslint-disable-next-line
   }, [user])
   return (
     <Wrapper>
@@ -90,7 +92,7 @@ const Register = () => {
           value={values.password}
           handleChange={handleChange}
         />
-        <button type='submit' className='btn btn-block'>
+        <button type='submit' className='btn btn-block' disabled={isLoading}>
           submit
         </button>
         <p>

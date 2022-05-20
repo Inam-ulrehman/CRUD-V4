@@ -105,6 +105,7 @@ const userSlice = createSlice({
       state.isLoading = false
       const { user } = payload
       state.user = user
+      addUserLocalStorage(user)
       toast.success('Profile Updated...', {
         position: toast.POSITION.TOP_CENTER,
       })
